@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "895772472711",
+    "project_id": "virtual-store-142a7",
+    "storage_bucket": "virtual-store-142a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895772472711:android:ec45bb81c85ad906790f22",
+        "android_client_info": {
+          "package_name": "com.example.virtualloja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895772472711-tt5tc0o1ogaddpb9bhk2s21rff647g54.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCHXrAuzN3bHsorUsHCiOhyP_fJrd2UPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895772472711-tt5tc0o1ogaddpb9bhk2s21rff647g54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
