@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:virtualloja/Components/Input_field.dart';
+import 'package:virtualloja/blocs/login_bloc.dart';
 
 // State full para se adaptar com teclado
 
@@ -11,6 +12,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _loginbloc = LoginBloc();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +38,20 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: Colors.pinkAccent,
                     size: 16,
                   ),
-                  InputFields(icon: Icons.person, hint: 'User', obscure: false),
                   InputFields(
-                      icon: Icons.security, hint: 'Password', obscure: true),
+                    icon: Icons.person,
+                    hint: 'User',
+                    obscure: false,
+                    stream: _loginbloc.outEmail,
+                    onchanged: _loginbloc.changeEmail,
+                  ),
+                  InputFields(
+                    icon: Icons.security,
+                    hint: 'Password',
+                    obscure: true,
+                    stream: _loginbloc.outPassword,
+                    onchanged: _loginbloc.changePassword,
+                  ),
                   SizedBox(
                     height: 32,
                   ),
@@ -46,7 +60,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           onSurface: Colors.pinkAccent),
-                      onPressed: () {},
+                      onPressed: () {
+                        if (_loginbloc.outPassword == null ||
+                            _loginbloc.changeEmail == null) {
+                          return null;
+                        }
+                      },
                       child: Text('Open'),
                     ),
                   )

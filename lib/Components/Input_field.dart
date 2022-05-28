@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:virtualloja/validators/login_validators.dart';
 
 class InputFields extends StatelessWidget {
   final IconData icon;
   final String hint;
   final bool obscure;
-  final Stream<String> stream;
+  final Stream<String?> stream;
   final Function(String) onchanged;
 
   // inicializar
@@ -17,9 +18,9 @@ class InputFields extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<String>(
+    return StreamBuilder<String?>(
         stream: stream,
-        builder: (context, snapshot) {
+        builder: (context, AsyncSnapshot<String?> snapshot) {
           return TextField(
             onChanged: onchanged,
             decoration: InputDecoration(
@@ -35,7 +36,8 @@ class InputFields extends StatelessWidget {
                       BorderSide(color: Color.fromARGB(255, 45, 43, 44))),
               contentPadding:
                   EdgeInsets.only(left: 5, right: 30, bottom: 30, top: 30),
-              errorText: snapshot.hasError ? snapshot.error : null,
+
+              //errorText: snapshot.hasError ? snapshot.error : null,
             ),
             style: TextStyle(color: Colors.white),
             obscureText: obscure,
